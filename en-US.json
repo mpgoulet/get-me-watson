@@ -1,0 +1,193 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "bring up a report",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "WatsonIntent",
+                    "slots": [
+                        {
+                            "name": "fromCity",
+                            "type": "AMAZON.US_CITY",
+                            "samples": [
+                                "{fromCity} ",
+                                "leaving from {fromCity} ",
+                                "from {fromCity} ",
+                                "my trip starts in {fromCity} "
+                            ]
+                        },
+                        {
+                            "name": "inquiryType",
+                            "type": "WatsonInquiryType",
+                            "samples": [
+                                "open a {inquiryType}"
+                            ]
+                        },
+                        {
+                            "name": "travelDate",
+                            "type": "AMAZON.DATE",
+                            "samples": [
+                                "{travelDate} ",
+                                "my trips starts {travelDate} ",
+                                "leaving on {travelDate} "
+                            ]
+                        },
+                        {
+                            "name": "activity",
+                            "type": "LIST_OF_ACTIVITIES"
+                        }
+                    ],
+                    "samples": [
+                        "open program",
+                        "run the program"
+                    ]
+                },
+                {
+                    "name": "FilterBuildingIntent",
+                    "slots": [
+                        {
+                            "name": "Organization",
+                            "type": "AMAZON.Organization"
+                        }
+                    ],
+                    "samples": [
+                        "Filter by  {Organization}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "LIST_OF_ACTIVITIES",
+                    "values": [
+
+                        {
+                            "name": {
+                                "value": "visit with my relatives"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "concert"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "WatsonInquiryType",
+                    "values": [
+                        {
+                            "id": "mapID",
+                            "name": {
+                                "value": "map value"
+                            }
+                        },
+                        {
+                            "id": "reportID",
+                            "name": {
+                                "value": "report value"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "WatsonIntent",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "inquiryType",
+                            "type": "WatsonInquiryType",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162780729786.1432530920282"
+                            }
+                        },
+                        {
+                            "name": "fromCity",
+                            "type": "AMAZON.US_CITY",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162780729786.1143025724798"
+                            }
+                        },
+                        {
+                            "name": "travelDate",
+                            "type": "AMAZON.DATE",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1162780729786.801508773141"
+                            }
+                        },
+                        {
+                            "name": "activity",
+                            "type": "LIST_OF_ACTIVITIES",
+                            "confirmationRequired": false,
+                            "elicitationRequired": false,
+                            "prompts": {}
+                        }
+                    ]
+                }
+            ]
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1162780729786.1432530920282",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Report or map?"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Do you want to open a report or a map?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1162780729786.1143025724798",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Run report on what city"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "Report of what city"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1162780729786.801508773141",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "Show data as of what date"
+                    },
+                    {
+                        "type": "PlainText",
+                        "value": "What date do you want to use"
+                    }
+                ]
+            }
+        ]
+    }
+}
