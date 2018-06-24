@@ -3,14 +3,14 @@ const Alexa = require('ask-sdk-core');
 // 1. Text strings ================================================================================
 //    Modify these strings and messages to change the behavior of your Lambda function
 
-const welcomeOutput = "Welcome to Watson hag stash bang bang. ";
-const welcomeReprompt = "Let me know where you'd like to go or when you'd like to go on your trip";
-const helpOutput = 'You can demonstrate the delegate directive by saying "plan a trip".';
-const helpReprompt = 'Try saying "plan a trip".';
+const welcomeOutput = "Welcome. ";
+const welcomeReprompt = "Say open a report.";
+const helpOutput = 'You can demonstrate the delegate directive by saying "bring up a report".';
+const helpReprompt = 'Try saying "bring up a report".';
 const tripIntro = [
-  'This sounds like a cool trip. ',
-  'This will be fun. ',
-  'Oh, I like this trip. ',
+  'I have built your query, ',
+  'Your query is as follows, ',
+  'Here are the results, '
 ];
 
 // 1. Intent Handlers =============================================
@@ -64,17 +64,15 @@ const CompletedPlanMyTripHandler = {
     if (slotValues.travelMode) {
       speechOutput += slotValues.travelMode;
     } else {
-      speechOutput += "You'll go ";
+      speechOutput += "Extended activity, ";
     }
 
-    console.log('Rendering speech output A2');
-
-    speechOutput = `${speechOutput}`;
+    console.log('******* Rendering speech output A2 *******');
 
     // Now let's recap the trip
-    //speechOutput = `${speechOutput} from ${slotValues.fromCity.synonym} to ${slotValues.inquiryType.synonym} on ${slotValues.travelDate.synonym}`;
-    speechOutput = `${speechOutput} from ${slotValues.fromCity.synonym} to ${slotValues.inquiryType.synonym}` ;
-    //from ${slotValues.fromCity.synonym} to ${slotValues.inquiryType.synonym} on ${slotValues.travelDate.synonym}`;
+    //speechOutput = `${speechOutput} from ${slotValues.filterCity.synonym} to ${slotValues.inquiryType.synonym} on ${slotValues.filterDateStart.synonym}`;
+    speechOutput = `${speechOutput} Opening a ${slotValues.inquiryType.synonym} for the city of ${slotValues.filterCity.synonym} with a start date of ${slotValues.filterDateStart.synonym}` ;
+    //from ${slotValues.filterCity.synonym} to ${slotValues.inquiryType.synonym} on ${slotValues.filterDateStart.synonym}`;
 
     if (slotValues.activity.synonym) {
       speechOutput += ` to go ${slotValues.activity.synonym}.`;

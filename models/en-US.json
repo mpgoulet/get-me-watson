@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "bring up a report",
+            "invocationName": "get me doris",
             "intents": [
                 {
                     "name": "AMAZON.CancelIntent",
@@ -19,29 +19,31 @@
                     "name": "WatsonIntent",
                     "slots": [
                         {
-                            "name": "fromCity",
+                            "name": "filterCity",
                             "type": "AMAZON.US_CITY",
                             "samples": [
-                                "{fromCity} ",
-                                "leaving from {fromCity} ",
-                                "from {fromCity} ",
-                                "my trip starts in {fromCity} "
+                                "{filterCity} ",
+                                "show me {filterCity} ",
+                                "the city of {filterCity} ",
+                                "report on {filterCity} "
                             ]
                         },
                         {
                             "name": "inquiryType",
                             "type": "WatsonInquiryType",
                             "samples": [
-                                "open a {inquiryType}"
+                                "open a {inquiryType}",
+                                "{inquiryType}"
                             ]
                         },
                         {
-                            "name": "travelDate",
+                            "name": "filterDateStart",
                             "type": "AMAZON.DATE",
                             "samples": [
-                                "{travelDate} ",
-                                "my trips starts {travelDate} ",
-                                "leaving on {travelDate} "
+                                "{filterDateStart}",
+                                "from {filterDateStart} ",
+                                "starting {filterDateStart}",
+                                "beginning {filterDateStart}"
                             ]
                         },
                         {
@@ -50,8 +52,8 @@
                         }
                     ],
                     "samples": [
-                        "open program",
-                        "run the program"
+                        "transistor",
+                        "capacitor"
                     ]
                 },
                 {
@@ -63,7 +65,7 @@
                         }
                     ],
                     "samples": [
-                        "Filter by  {Organization}"
+                        "Filter by {Organization}"
                     ]
                 }
             ],
@@ -71,7 +73,6 @@
                 {
                     "name": "LIST_OF_ACTIVITIES",
                     "values": [
-
                         {
                             "name": {
                                 "value": "visit with my relatives"
@@ -120,7 +121,7 @@
                             }
                         },
                         {
-                            "name": "fromCity",
+                            "name": "filterCity",
                             "type": "AMAZON.US_CITY",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
@@ -129,7 +130,7 @@
                             }
                         },
                         {
-                            "name": "travelDate",
+                            "name": "filterDateStart",
                             "type": "AMAZON.DATE",
                             "confirmationRequired": false,
                             "elicitationRequired": true,
@@ -158,7 +159,7 @@
                     },
                     {
                         "type": "PlainText",
-                        "value": "Do you want to open a report or a map?"
+                        "value": "Open a report or a map?"
                     }
                 ]
             },
@@ -167,11 +168,11 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Run report on what city"
+                        "value": "Filter by what city?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "Report of what city"
+                        "value": "What city do you want to filter by?"
                     }
                 ]
             },
@@ -180,11 +181,11 @@
                 "variations": [
                     {
                         "type": "PlainText",
-                        "value": "Show data as of what date"
+                        "value": "What is the start date?"
                     },
                     {
                         "type": "PlainText",
-                        "value": "What date do you want to use"
+                        "value": "Show information from what date?"
                     }
                 ]
             }
